@@ -1,0 +1,36 @@
+package SetsAndAdvancedMaps;
+
+        import java.util.*;
+
+public class parkingLot {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        Set<String> plates = new LinkedHashSet<>();
+        while (!input.equals("END")){
+            String [] data = input.split(", ");
+            String command = data[0];
+            String plate = data[1];
+            if(command.equals("IN")){
+                if(!plates.contains(plate)){
+                    plates.add(plate);
+                }
+            } else if (command.equals("OUT")){
+                if(plates.contains(plate)){
+                    plates.remove(plate);
+                }
+            }
+
+            input = scanner.nextLine();
+        }
+        if(plates.size() > 0) {
+            for (String plate :
+                    plates) {
+                System.out.printf("%s%n", plate);
+            }
+        }
+        if(plates.isEmpty()){
+            System.out.println("Parking Lot is Empty");
+        }
+    }
+}
