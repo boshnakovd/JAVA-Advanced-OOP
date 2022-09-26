@@ -1,0 +1,24 @@
+package SetsAndAdvancedMaps;
+
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+import static java.lang.Integer.parseInt;
+
+public class periodicTable {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int numberOfCompounds = Integer.parseInt(scanner.nextLine());
+
+        TreeSet<String> elements = new TreeSet<>();
+        for (int i = 0; i < numberOfCompounds; i++) {
+            String[] compound = scanner.nextLine().split(" ");
+            Collections.addAll(elements, compound);
+        }
+
+
+        String result = String.join(" ", elements);
+        System.out.println(result);
+    }
+}
