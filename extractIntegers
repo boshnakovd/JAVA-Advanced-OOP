@@ -1,0 +1,22 @@
+package streams_files_directories;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class extractIntegers {
+    public static void main(String[] args) throws FileNotFoundException {
+        String filePath = "C:\\Users\\boshn\\IdeaProjects\\javaAdvanced\\src\\streams_files_directories\\04. Java-Advanced-Files-and-Streams-Lab-Resources\\input.txt";
+        String out = "C:\\Users\\boshn\\IdeaProjects\\javaAdvanced\\src\\streams_files_directories\\04. Java-Advanced-Files-and-Streams-Lab-Resources\\04.ExtractIntegersOutput.txt";
+        Scanner scanner = new Scanner(new FileInputStream(filePath));
+        PrintWriter output = new PrintWriter(new FileOutputStream(out));
+        while (scanner.hasNext()){
+            if(scanner.hasNextInt()) {
+                int myNum = scanner.nextInt();
+                //System.out.println(myNum);
+                output.println(myNum);
+            }
+            scanner.next();
+        }
+        output.close();
+    }
+}
